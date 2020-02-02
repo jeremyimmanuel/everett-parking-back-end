@@ -4,20 +4,45 @@ from flask_sqlalchemy import SQLAlchemy
 
 app = flask.Flask(__name__)
 app.config['DEBUG'] = True
-app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:////test_lots.db'
-db = SQLAlchemy(app)
 
-Lot(db.Model):
-    lot_id = db.Column(db.Integer, primary_key=True)
-    corners = db.Column(db.String, unique=False, nullable=False)
-    lot_type = db.Column(db.String(20), unique=False, nullable=False)
-    num_spots = db.Column(db.Integer, unique=False, nullable=False)
-
-    def __repr__(self):
-        return 'ID: %r' % lot_id
+test_data = {
+	"locations": [{
+		"coords": [{
+			"longitude": 10,
+			"latitude": 10
+		}, {
+			"longitude": 10,
+			"latitude": 20
+		}, {
+			"longitude": 20,
+			"latitude": 10
+		}, {
+			"longitude": 20,
+			"latitude": 20
+		}],
+		"type": "Public Lot",
+		"numSpots": 5
+	}, {
+		"coords": [{
+			"longitude": 100,
+			"latitude": 100
+		}, {
+			"longitude": 100,
+			"latitude": 200
+		}, {
+			"longitude": 200,
+			"latitude": 100
+		}, {
+			"longitude": 200,
+			"latitude": 200
+		}],
+		"type": "Private Lot",
+		"numSpots": 200
+	}]
+}
 
 @app.route('/data/parkinglot', methods=['GET'])
 def parkingData():
     return jsonify(test_data)
 
-app.run()
+app.run(host="0.0.0.0")
