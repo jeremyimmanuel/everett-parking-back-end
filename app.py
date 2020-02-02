@@ -1,10 +1,21 @@
 import flask
 from flask import jsonify, request
 from flask_sqlalchemy import SQLAlchemy
-from lot import db,Lot
 
 app = flask.Flask(__name__)
 app.config['DEBUG'] = True
+app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:////tmp/lots231.db'
+db = SQLAlchemy(app)
+
+class Lot(db.Model):
+    lot_id = db.Column(db.Integer, primary_key=True)
+    polygon_id = db.Column(db.String, unique=True, nullable=False)
+    corners = db.Column(db.String, unique=False, nullable=False)
+    lot_type = db.Column(db.String, unique=False, nullable=False)
+    num_spots = db.Column(db.Integer, unique=False, nullable=False)
+
+    def __repr__(self):
+        return 'ID: %r' % self.lot_id
 
 test_data = { 
     "locations": [{
@@ -54,7 +65,7 @@ test_data = {
 
 @app.route('/data/parkinglot', methods=['GET'])
 def parkingData():
-    #Lot.query.all()
+    Lot.query.all()
     return jsonify(test_data)
 
 @app.route('/data/add', methods=['GET'])
@@ -71,5 +82,7 @@ def addLot():
                          lot_type=lot_type,
                          num_spots=num_spots)
     db.session.add(new_lot)
+    return str(new_lot)
 
 app.run(host="0.0.0.0")
+db.create_all()
