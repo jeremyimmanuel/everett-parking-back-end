@@ -2,7 +2,7 @@ import flask
 from flask_sqlalchemy import SQLAlchemy
 
 app = flask.Flask(__name__)
-app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:////tmp/test_lots2.db'
+app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:////tmp/lots.db'
 db = SQLAlchemy(app)
 
 class Lot(db.Model):
@@ -14,9 +14,3 @@ class Lot(db.Model):
 
     def __repr__(self):
         return 'ID: %r' % self.lot_id
-
-#@app.route('/data/parkinglot', methods=['GET'])
-#def parkingData():
-#    return jsonify(test_data)
-
-#app.run()
