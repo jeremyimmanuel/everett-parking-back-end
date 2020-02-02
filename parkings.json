@@ -39,6 +39,7 @@
     }], 
     "type": 2,
     "num_spots": 83,
+    "restriction": 0,
     "time_restriction": "0",
     "id": 2
 }, {
