@@ -23,7 +23,6 @@ for i, k in enumerate (park1.locations):
             for x in v:
                 for z in x.values():
                     construct[0] += str (z) + ","
-                    # print(z)
     construct[0] = construct[0][:-1]
     for i in construct:
         hit += i

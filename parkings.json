@@ -18,8 +18,10 @@
         "latitude": 47.981888, 
         "longitude": -122.213497
     }], 
-    "type": "public lot",
+    "type": 1,
     "num_spots": 97,
+    "restriction": 0,
+    "time_restriction": "0",
     "id": 1
 }, {
     "coords": [{
@@ -35,8 +37,9 @@
         "latitude": 47.978733,
         "longitude": -122.204572 
     }], 
-    "type": "private lot",
+    "type": 2,
     "num_spots": 83,
+    "time_restriction": "0",
     "id": 2
 }, {
     "coords": [{
@@ -52,8 +55,10 @@
         "latitude": 47.981572,
         "longitude": -122.209795
     }], 
-    "type": "private lot",
+    "type": 2,
     "num_spots": 86,
+    "restriction": 0,
+    "time_restriction": "0",
     "id": 3
 }, {
     "coords": [{
@@ -69,8 +74,10 @@
         "latitude": 47.977014,
         "longitude": -122.211355
     }], 
-    "type": "private lot",
+    "type": 2,
     "num_spots": 37,
+    "restriction": 0,
+    "time_restriction": "0",
     "id": 4
 }, {
     "coords": [{
@@ -86,7 +93,29 @@
         "latitude": 47.980988,
         "longitude": -122.206514
     }], 
-    "type": "private lot",
+    "type": 2,
     "num_spots": 52,
+    "restriction": 0,
+    "time_restriction": "0",
     "id": 5
-}]
+}, {
+    "coords": [{
+        "latitude": 47.9792669,
+        "longitude": -122.2016124
+    }, {
+        "latitude": 47.9792732,
+        "longitude": -122.2019262 
+    }, {
+        "latitude": 47.9793214,
+        "longitude": -122.2019212 
+    }, {
+        "latitude": 47.9793360,
+        "longitude": -122.2016010
+    }], 
+    "type": 64,
+    "num_spots": 9,
+    "restriction": 1,
+    "time_restriction": "90",
+    "id": 6
+}
+]

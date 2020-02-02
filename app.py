@@ -34,8 +34,11 @@ class Lot(db.Model):
     """
     lot_id = db.Column(db.Integer, primary_key=True)
     corners = db.Column(db.String, unique=False, nullable=False)
-    lot_type = db.Column(db.String, unique=False, nullable=False)
+    lot_type = db.Column(db.Integer, unique=False, nullable=False)
     num_spots = db.Column(db.Integer, unique=False, nullable=False)
+    restriction = db.Column(db.Integer, unique=False, nullable=False)
+    time_restriction = db.Column(db.String, unique=False, nullable=False)
+    
 
     def __repr__(self):
         return 'ID: %r' % self.lot_id
@@ -64,6 +67,8 @@ def parkingData():
         location['id'] = lot.lot_id
         location['type'] = lot.lot_type
         location['num_spots'] = lot.num_spots
+        location['restriction'] = lot.restriction
+        location['time_restriction'] = lot.time_restriction
 
         pairs = []
         _pairs = lot.corners.split(",")
@@ -91,6 +96,8 @@ def addLot():
     lot_type = request.args.get('type')
     coords = request.args.get('coords')
     num_spots = request.args.get('num_spots')
+    restriction = request.args.get('restriction')
+    time_restriction = request.args.get('time_restriction')
 
     coord_validate_code = validate_coordinates(coords)
     if coord_validate_code != 0:
@@ -105,7 +112,9 @@ def addLot():
     new_lot = Lot(lot_id=lot_id,
                   corners=coords,
                   lot_type=lot_type,
-                  num_spots=num_spots)
+                  num_spots=num_spots,
+                  restriction=restriction,
+                  time_restriction=time_restriction)
     db.session.add(new_lot)
     try:
         db.session.commit()
