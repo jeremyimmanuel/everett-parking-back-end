@@ -134,7 +134,7 @@ def validate_coordinates(string):
             print("ERROR: latitude out of range (element ", i, )
             return 2
         if i % 2 == 1 and (value < -180 or value > 80):
-            print("ERROR: longtitude out of range")
+            print("ERROR: longitude out of range")
             return 3
 
     return 0
