@@ -4,6 +4,7 @@
 
 from flask import Flask, jsonify, request, abort
 from flask_sqlalchemy import SQLAlchemy
+import os
 
 app = Flask(__name__)
 app.config['DEBUG'] = True
@@ -56,7 +57,7 @@ def parkingData():
         ]
         "id" : (int)
         "num_spots" : (int)
-        "type" : (string) (future: simplify to int)
+        "type" : (int)
     ]
 
     """
@@ -85,11 +86,19 @@ def parkingData():
 def addLot():
     """
     Create a record with the data passed in.
+    If the enviornment variable ALLOW_ADD_CALL does not exist or is not YES, then this returns a 400 error code
 
     Future work:
     Validate input data
     Use environment variable/authentication to disable/restrict calls to this function
     """
+
+    #allow_add_call = os.environ.get('ALLOW_ADD_CALL')
+    #if allow_add_call is None:
+    #    abort(403, description="Reason: enviornment variable does not exist")
+    #elif allow_add_call != 'YES':
+    #    abort(403, description="Reason: enviornment variable not set to YES")
+        
 
     #Get all data from query params
     lot_id = request.args.get('id')
