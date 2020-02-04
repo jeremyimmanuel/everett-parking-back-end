@@ -1,5 +1,5 @@
 # PROJ: Everett Parking
-# AUTH: Krish Kalai, Jun Zhen, Jermey Tandjung
+# AUTH: Krish Kalai, Jun Zhen, Jeremy Tandjung
 # DATE: Feb 02, 2021
 
 from flask import Flask, jsonify, request, abort
