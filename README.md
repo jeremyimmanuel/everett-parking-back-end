@@ -37,6 +37,10 @@ Once the server is up, you can make a call to:
 
 More information is provided in code.
 
+## SQL database
+
+We use SQL database to manage our data. Data are collected manual by hand and put into a JSON file. This JSON file will be processed through a script and insert/update the database.
+
 ### Future work
 
 - Add validation to add\_lot()
