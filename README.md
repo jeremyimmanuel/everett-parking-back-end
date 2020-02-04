@@ -24,6 +24,8 @@ We have separates repoes for the Front-end side (a mobile application) and the B
 We decided to use Flask to build a webserver because deploying it is very quick. Since it is written in Python, any changes are reflected almost instantationsly. Also Flask has a bridge to SQL, so database access is simple.
 
 ### Usage
+- Get your local ipaddress with `ifconfig | grep inet`
+- Change the ipaddress in the source code of the app in the front-end side in `polygonList.dart`
 - python3 app.py
 
 Once the server is up, you can make a call to:
@@ -60,5 +62,5 @@ More information is provided in code.
 3. SQL
 4. JSON
 
-#Conclusion
+# Conclusion
 Overall we had an awesome time at the hackathon. Shout out to WSU Everett ACM and their sponsors for organizing this event!
