@@ -44,7 +44,7 @@
     "id": 2
 }, {
     "coords": [{
-        "latitude": 47.989860,
+        "latitude": 47.980860,
         "longitude": -122.209929 
     }, {
         "latitude": 47.980950,
@@ -63,12 +63,12 @@
     "id": 3
 }, {
     "coords": [{
-        "latitude": 47.976535,
-        "longitude": -122.210673
-    }, {
         "latitude": 47.976501,
         "longitude": -122.211352
-    }, {
+    },{
+        "latitude": 47.976535,
+        "longitude": -122.210673
+    },{
         "latitude": 47.977024,
         "longitude": -122.210697
     }, {
